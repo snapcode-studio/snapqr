@@ -18,6 +18,11 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   font-family: 'Inter', -apple-system, sans-serif;
   background-color: var(--bg-deep);
@@ -107,6 +112,7 @@ nav { position: sticky; top: 0; z-index: 100; padding: clamp(10px, 2vw, 20px); }
 }
 
 @media (max-width: 600px) {
+  .hero-content { min-width: unset; }
   .hero-content h1 { text-align: center; }
   .hero-content p { text-align: center; margin: 0 auto; }
   .auth-box { width: 100%; min-width: unset; }

@@ -57,7 +57,6 @@ listenAuthState((user) => {
         color: "transparent", // Tło kontenera daje biały kolor, dzięki czemu sam QR można pobrać przezroczysty jak trzeba
       },
       imageOptions: {
-        crossOrigin: "anonymous",
         margin: 5,
         imageSize: 0.5 // Duże logo
       },
