@@ -29,7 +29,10 @@
         <form id="authForm">
           <input type="email" id="email" placeholder="Adres e-mail" required />
           <input type="password" id="password" placeholder="Hasło" required />
-          <button type="submit" class="btn btn-primary" id="authSubmitBtn" style="margin-top: 10px;">Rozpocznij</button>
+          <div id="forgotPasswordWrap" style="text-align: right; margin-top: -4px; margin-bottom: 12px;">
+            <a href="#" id="forgotPasswordBtn" style="color:var(--text-secondary); text-decoration:none; font-size:0.85rem; transition: color 0.2s;">Zapomniałeś hasła?</a>
+          </div>
+          <button type="submit" class="btn btn-primary" id="authSubmitBtn">Rozpocznij</button>
         </form>
         <p style="text-align:center; margin-top:1.5rem; font-size:0.9rem;">
           <a href="#" id="toggleAuthMode" style="color:var(--text-secondary); text-decoration:none; font-weight:500; transition: color 0.2s;">
