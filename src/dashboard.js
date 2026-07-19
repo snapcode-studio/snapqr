@@ -49,7 +49,7 @@ listenAuthState((user) => {
       width: 320,
       height: 320,
       data: menuUrl,
-      image: "/apple-touch-icon.png",
+      image: "/favicon-96x96.png",
       dotsOptions: {
         color: "#0a0a0c",
         type: "rounded"
