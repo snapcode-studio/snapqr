@@ -7,7 +7,15 @@ const widgetTitle = document.getElementById('widgetTitle');
 const fullMenuLink = document.getElementById('fullMenuLink');
 
 const urlParams = new URLSearchParams(window.location.search);
-const restaurantId = urlParams.get('id');
+let restaurantId = urlParams.get('id');
+
+// Fallback for clean URL structure e.g. /w/masalabar
+if (!restaurantId) {
+  const pathParts = window.location.pathname.split('/');
+  if (pathParts.length >= 3 && pathParts[1] === 'w') {
+    restaurantId = pathParts[2];
+  }
+}
 
 if (!restaurantId) {
   widgetLoading.innerText = "Błąd: Brak ID restauracji.";
