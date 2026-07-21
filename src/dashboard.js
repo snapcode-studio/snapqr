@@ -199,7 +199,7 @@ listenAuthState((user) => {
     };
 
     // Widget Modal Logic
-    const widgetUrl = `${window.location.origin}/widget.html?id=${user.uid}`;
+    const widgetUrl = `https://menu.getsnap.space/widget.html?id=${user.uid}`;
     const iframeCode = `<iframe src="${widgetUrl}" width="100%" height="400" frameborder="0" style="border-radius:16px; border:1px solid rgba(255,255,255,0.1); overflow:hidden;"></iframe>`;
     
     openWidgetModalBtn.onclick = () => {
