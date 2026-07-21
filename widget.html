@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>SnapMenu Widget</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: transparent;
+      }
+      .widget-container {
+        padding: 16px;
+        border-radius: 16px;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        font-family: 'Inter', sans-serif;
+      }
+      .widget-header {
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .widget-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .widget-item:last-child {
+        border-bottom: none;
+      }
+      .widget-item-name {
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+      .widget-item-desc {
+        font-size: 0.8rem;
+        opacity: 0.6;
+        margin-top: 4px;
+        line-height: 1.3;
+      }
+      .widget-item-price {
+        font-family: 'Geist Mono', monospace;
+        font-weight: 500;
+      }
+      .widget-footer {
+        text-align: center;
+        margin-top: 12px;
+        font-size: 0.75rem;
+        opacity: 0.7;
+      }
+      .widget-footer a {
+        color: inherit;
+        font-weight: 700;
+      }
+      .btn-full-menu {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        margin-top: 12px;
+        transition: background 0.3s;
+        cursor: pointer;
+      }
+      .btn-full-menu:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+    </style>
+  </head>
+  <body id="widgetBody">
+    <div class="widget-container" id="widgetContainer">
+      <div class="widget-header">
+        <span id="widgetTitle">Nasze Menu</span>
+      </div>
+      <div id="widgetLoading" style="text-align:center; padding:20px; opacity:0.5;">Ładowanie...</div>
+      <div id="widgetList"></div>
+      <a href="#" id="fullMenuLink" target="_blank" class="btn-full-menu" style="display:none;">Zobacz pełne menu</a>
+      <div class="widget-footer">
+        Powered by <a href="https://snapmenu.getsnap.space" target="_blank">SnapMenu</a>
+      </div>
+    </div>
+    <script type="module" src="/src/widget.js"></script>
+  </body>
+</html>

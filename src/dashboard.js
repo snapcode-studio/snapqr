@@ -33,6 +33,15 @@ const qrcodeContainer = document.getElementById('qrcode');
 const publicLink = document.getElementById('publicLink');
 const downloadQrBtn = document.getElementById('downloadQrBtn');
 
+// Widget Modal UI
+const openWidgetModalBtn = document.getElementById('openWidgetModalBtn');
+const widgetModal = document.getElementById('widgetModal');
+const closeWidgetModalBtn = document.getElementById('closeWidgetModalBtn');
+const widgetCodeInput = document.getElementById('widgetCodeInput');
+const copyWidgetCodeBtn = document.getElementById('copyWidgetCodeBtn');
+const copyWidgetLinkBtn = document.getElementById('copyWidgetLinkBtn');
+const widgetPreviewIframe = document.getElementById('widgetPreviewIframe');
+
 // Menu UI
 const addItemForm = document.getElementById('addItemForm');
 const itemNameInput = document.getElementById('itemName');
@@ -187,6 +196,42 @@ listenAuthState((user) => {
         downloadQrBtn.innerText = originalText;
         downloadQrBtn.disabled = false;
       }
+    };
+
+    // Widget Modal Logic
+    const widgetUrl = `${window.location.origin}/widget.html?id=${user.uid}`;
+    const iframeCode = `<iframe src="${widgetUrl}" width="100%" height="400" frameborder="0" style="border-radius:16px; border:1px solid rgba(255,255,255,0.1); overflow:hidden;"></iframe>`;
+    
+    openWidgetModalBtn.onclick = () => {
+      widgetCodeInput.value = iframeCode;
+      widgetPreviewIframe.src = widgetUrl;
+      widgetModal.style.display = 'flex';
+    };
+
+    closeWidgetModalBtn.onclick = () => {
+      widgetModal.style.display = 'none';
+      widgetPreviewIframe.src = '';
+    };
+
+    widgetModal.onclick = (e) => {
+      if(e.target === widgetModal) {
+        widgetModal.style.display = 'none';
+        widgetPreviewIframe.src = '';
+      }
+    };
+
+    copyWidgetCodeBtn.onclick = () => {
+      navigator.clipboard.writeText(iframeCode);
+      const originalText = copyWidgetCodeBtn.innerText;
+      copyWidgetCodeBtn.innerText = "Skopiowano!";
+      setTimeout(() => copyWidgetCodeBtn.innerText = originalText, 2000);
+    };
+
+    copyWidgetLinkBtn.onclick = () => {
+      navigator.clipboard.writeText(widgetUrl);
+      const originalText = copyWidgetLinkBtn.innerText;
+      copyWidgetLinkBtn.innerText = "Skopiowano!";
+      setTimeout(() => copyWidgetLinkBtn.innerText = originalText, 2000);
     };
 
     // Pobieranie Menu
