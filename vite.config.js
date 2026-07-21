@@ -7,7 +7,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         dashboard: resolve(__dirname, 'dashboard.html'),
-        menu: resolve(__dirname, 'menu.html')
+        menu: resolve(__dirname, 'menu.html'),
+        widget: resolve(__dirname, 'widget.html')
       }
     }
   }
