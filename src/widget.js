@@ -38,14 +38,22 @@ function renderWidgetMenu(items) {
   const pitchOverlay = document.getElementById('pitchOverlay');
   widgetList.innerHTML = '';
   
-  if(items.length === 0) {
+  let itemsToRender = items;
+  
+  if (items.length === 0) {
+    // Show pitch overlay
     pitchOverlay.classList.add('active');
-    return;
+    // Generate mock items for the background blur
+    itemsToRender = [
+      { name: "Przykładowe Danie 1", desc: "Opis pysznego dania, które zachęci klientów.", price: 29.99 },
+      { name: "Przykładowe Danie 2", desc: "Kolejna świetna propozycja z Twojego menu.", price: 34.50 },
+      { name: "Przykładowy Deser", desc: "Słodki dodatek na koniec posiłku.", price: 15.00 }
+    ];
   } else {
     pitchOverlay.classList.remove('active');
   }
 
-  items.forEach((item) => {
+  itemsToRender.forEach((item) => {
     const div = document.createElement('div');
     div.className = 'widget-item';
     
