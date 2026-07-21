@@ -5,3 +5,8 @@
   Access-Control-Allow-Origin: *
   Content-Security-Policy: frame-ancestors *
   ! X-Frame-Options
+
+/*/widget
+  Access-Control-Allow-Origin: *
+  Content-Security-Policy: frame-ancestors *
+  ! X-Frame-Options
