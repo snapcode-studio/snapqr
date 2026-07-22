@@ -95,7 +95,7 @@
         box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
       }
       .widget-header {
-        margin-bottom: 14px;
+        margin-bottom: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -114,14 +114,47 @@
       }
       .widget-title {
         font-weight: 700;
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         letter-spacing: -0.01em;
+      }
+      .widget-filters {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        margin-bottom: 10px;
+        scrollbar-width: none;
+      }
+      .widget-filters::-webkit-scrollbar {
+        display: none;
+      }
+      .filter-chip {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.75);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.25s ease;
+      }
+      .filter-chip:hover {
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+      }
+      .filter-chip.active {
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(212, 175, 55, 0.1) 100%);
+        border-color: rgba(212, 175, 55, 0.5);
+        color: #f0c75e;
+        font-weight: 600;
       }
       #widgetList {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 12px;
-        margin: 8px 0 14px 0;
+        margin: 4px 0 12px 0;
         flex-grow: 1;
       }
       .widget-item {
@@ -168,6 +201,35 @@
         font-size: 0.8rem;
         opacity: 0.65;
         line-height: 1.35;
+      }
+      .item-badge-group {
+        display: flex;
+        gap: 6px;
+        margin-top: 8px;
+        flex-wrap: wrap;
+      }
+      .item-badge {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .item-badge.wege {
+        background: rgba(46, 125, 50, 0.2);
+        border-color: rgba(76, 175, 80, 0.4);
+        color: #81c784;
+      }
+      .item-badge.gf {
+        background: rgba(255, 152, 0, 0.18);
+        border-color: rgba(255, 152, 0, 0.35);
+        color: #ffb74d;
+      }
+      .item-badge.spicy {
+        background: rgba(211, 47, 47, 0.2);
+        border-color: rgba(229, 57, 53, 0.4);
+        color: #e57373;
       }
       .widget-footer {
         text-align: center;
@@ -225,6 +287,14 @@
             <span id="widgetTitle" class="widget-title">Nasze Menu</span>
           </div>
         </div>
+
+        <div class="widget-filters" id="widgetFilters" style="display: none;">
+          <button class="filter-chip active" data-filter="all">Wszystkie</button>
+          <button class="filter-chip" data-filter="wege">🌱 Wegańskie</button>
+          <button class="filter-chip" data-filter="gf">🌾 Bezglutenowe</button>
+          <button class="filter-chip" data-filter="spicy">🌶️ Pikantne</button>
+        </div>
+
         <div id="widgetLoading" style="text-align:center; padding:20px; opacity:0.5;">Ładowanie...</div>
         <div id="widgetList"></div>
       </div>
