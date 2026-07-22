@@ -50,12 +50,12 @@ function appendWidgetItem(item) {
   const priceFormatted = typeof item.price === 'number' ? `${item.price.toFixed(2)} zł` : '';
   
   div.innerHTML = `
-    <div style="flex: 1; padding-right: 12px;">
-      <div class="widget-item-name">${item.name}</div>
+    <div>
+      <div class="widget-item-header">
+        <div class="widget-item-name">${item.name}</div>
+        ${priceFormatted ? `<div class="widget-item-price">${priceFormatted}</div>` : ''}
+      </div>
       ${item.desc ? `<div class="widget-item-desc">${item.desc}</div>` : ''}
-    </div>
-    <div class="widget-item-price">
-      ${priceFormatted}
     </div>
   `;
   widgetList.appendChild(div);
